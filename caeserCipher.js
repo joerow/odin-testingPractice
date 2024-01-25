@@ -1,5 +1,5 @@
 function caeserCipher(initString, shiftFactor) {
-  let alphabetLowercase = {
+  /* let alphabetLowercase = {
     a: 1,
     b: 2,
     c: 3,
@@ -54,38 +54,87 @@ function caeserCipher(initString, shiftFactor) {
     "X",
     "Y",
     "Z",
-  ];
+  ]; */
 
+  const myMap = new Map();
+  myMap.set("a", 1);
+  myMap.set("b", 2);
+
+  // flatten the string to characters
   let spreadString = [...initString];
-  let numericArray = [];
-  let chipherString = [];
+  console.log(spreadString);
 
-  function shiftValues(array, shiftFactor) {}
+  //iterate through the letters and convert the characters
+  //to numbers if they exist in the map, else leave them untouched
 
+  //TODO only converting the first char and just returning the others.
   function charToNum(char) {
+    for (const [key, value] of myMap) {
+      if (key === char) {
+        return value;
+      } else {
+      }
+      return char;
+    }
+  }
+  //iterate through the character array converting any allowed chars
+  //to numbers and adding them to the numeric array
+  let numericArray = [];
+  spreadString.forEach((element) => {
+    numericArray.push(charToNum(element));
+  });
+
+  console.log(numericArray);
+
+  function numShift(params) {}
+
+  //iterate through the letters and convert the characters
+  //to numbers if they exist in the map, else leave them untouched
+  function numToChar(num) {
+    for (const [key, value] of myMap) {
+      if (value === num) {
+        return key;
+      } else {
+        return num;
+      }
+    }
+  }
+  //iterate through the character array converting any allowed chars
+  //to numbers and adding them to the numeric array
+  let chipherString = "";
+  numericArray.forEach((number) => {
+    chipherString += numToChar(number);
+  });
+
+  console.log(chipherString);
+
+  function buildCipherString(params) {}
+
+  /*   function shiftValues(array, shiftFactor) {}
+   */
+  /*   function charToNum(char) {
     if (alphabetLowercase[char] != null) {
       return alphabetLowercase[char];
     } else {
       console.log(false);
     }
-  }
+  } */
 
-  function numToChar(object, value) {
+  /*   function numToChar(object, value) {
     for (let prop in object) {
       if (object.hasOwnProperty(prop)) {
         if (object[prop] === value) return prop;
       }
     }
-  }
+  } */
 
-  numericArray = spreadString.map(charToNum);
+  /*   numericArray = spreadString.map(charToNum);
+   */
+  /*   for (const value of object.values()) {
+  } */
 
-  chipherString = chipherString.push(
-    numericArray.forEach((element) => {
-      numToChar(alphabetLowercase, element);
-    })
-  );
-  return chipherString;
+  /*   chipherString = chipherString.push();
+   */ return chipherString;
 
   /* 
   spreadString.forEach((character) => {
