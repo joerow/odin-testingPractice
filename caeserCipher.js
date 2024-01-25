@@ -58,16 +58,46 @@ function caeserCipher(initString, shiftFactor) {
 
   let spreadString = [...initString];
   let numericArray = [];
+  let chipherString = [];
 
+  function shiftValues(array, shiftFactor) {}
+
+  function charToNum(char) {
+    if (alphabetLowercase[char] != null) {
+      return alphabetLowercase[char];
+    } else {
+      console.log(false);
+    }
+  }
+
+  function numToChar(object, value) {
+    for (let prop in object) {
+      if (object.hasOwnProperty(prop)) {
+        if (object[prop] === value) return prop;
+      }
+    }
+  }
+
+  numericArray = spreadString.map(charToNum);
+
+  chipherString = chipherString.push(
+    numericArray.forEach((element) => {
+      numToChar(alphabetLowercase, element);
+    })
+  );
+  return chipherString;
+
+  /* 
   spreadString.forEach((character) => {
     if (alphabetLowercase[character] != null) {
       numericArray.push(alphabetLowercase[character]);
       console.log(numericArray);
     } else {
       console.log(false);
-    }
-  });
-
-  //console.log(alphabetLowercase.includes(spreadString[0]));
+    } */
 }
+
+//console.log(alphabetLowercase.includes(spreadString[0]));
+
+// TODO try https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map#iterating_map_with_for...of
 module.exports = caeserCipher;
